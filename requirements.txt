@@ -6,4 +6,4 @@ seaborn
 pyyaml
 
 ## Local package installation
--e .
+-e .  ### <<< TO install local packges define defined in setup.py

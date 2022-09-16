@@ -9,5 +9,6 @@ setup(
     author = "Hemanth",
     description = "A small package for DL Pipeline",
     long_description=description,
+    packages=['src']
     
 )
