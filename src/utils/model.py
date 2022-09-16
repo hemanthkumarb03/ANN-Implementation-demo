@@ -1,6 +1,7 @@
 import tensorflow as tf
 import time
 import os
+import matplotlib.pyplot as plt
 
 def create_model(loss, optimizer, metrics, classes):
 
@@ -26,3 +27,9 @@ def save_model(model,model_name,model_dir):
     filename = get_unique_filename(model_name)
     path = os.path.join(model_dir,filename)
     model.save(path)
+
+def save_plot(df,path):
+    filename = get_unique_filename(f"%Y%m%d_%H%M%S_plot.png")
+    plt.figure(figsize=(12,12))
+    plt.plot(df)
+    plt.savefig(path)

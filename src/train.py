@@ -3,8 +3,10 @@ from src.utils.common import read_config
 from src.utils.data import get_data
 from src.utils.model import create_model
 from src.utils.model import save_model
+from src.utils.model import save_plot
 import os
 import argparse
+import pandas as pd
 
 
 
@@ -36,6 +38,13 @@ def training(config_path):
     os.makedirs(model_dir_path, exist_ok=True)
 
     save_model(model,model_name,model_dir)
+
+    #plot loss
+    plots_dir = config['artifacts']['plots_dir']
+    path = os.path.join(artifacts_dir,plots_dir)
+    os.makedirs(path,exist_ok=True)
+    save_plot(pd.DataFrame(history.history),path)
+
 
 
 
